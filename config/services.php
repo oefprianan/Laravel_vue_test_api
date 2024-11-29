@@ -12,7 +12,7 @@ return [
     | location for this type of information, allowing packages to have
     | a conventional file to locate the various service credentials.
     |
-    */
+     */
 
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
@@ -34,5 +34,10 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
-
+    'api' => [
+        'timeout' => env('API_TIMEOUT', 30),
+        'connect_timeout' => env('API_CONNECT_TIMEOUT', 30),
+        'retry_times' => env('API_RETRY_TIMES', 3),
+        'retry_sleep' => env('API_RETRY_SLEEP', 100),
+    ],
 ];

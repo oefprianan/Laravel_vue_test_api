@@ -10,11 +10,17 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "laravel/framework": "^11.31",
+        "firebase/php-jwt": "^6.10",
+        "illuminate/auth": "*",
+        "illuminate/contracts": "*",
+        "illuminate/support": "*",
+        "laravel/framework": "^11.34",
         "laravel/sanctum": "^4.0",
-        "laravel/tinker": "^2.9"
+        "laravel/tinker": "^2.9",
+        "php-open-source-saver/jwt-auth": "^2.7"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^3.2",
         "fakerphp/faker": "^1.23",
         "laravel/pail": "^1.1",
         "laravel/pint": "^1.13",
@@ -58,7 +64,7 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": ["barryvdh/laravel-ide-helper"]
         }
     },
     "config": {

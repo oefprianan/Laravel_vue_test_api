@@ -4,7 +4,6 @@ namespace App\Policies;
 
 use App\Models\Task;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
 
 class TaskPolicy
 {
@@ -13,7 +12,7 @@ class TaskPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return true; // All authenticated users can view their tasks
     }
 
     /**
@@ -21,7 +20,7 @@ class TaskPolicy
      */
     public function view(User $user, Task $task): bool
     {
-        //
+        return $user->id === $task->user_id;
     }
 
     /**
@@ -29,7 +28,7 @@ class TaskPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return true; // All authenticated users can create tasks
     }
 
     /**
@@ -37,7 +36,7 @@ class TaskPolicy
      */
     public function update(User $user, Task $task): bool
     {
-        //
+        return $user->id === $task->user_id;
     }
 
     /**
@@ -45,7 +44,7 @@ class TaskPolicy
      */
     public function delete(User $user, Task $task): bool
     {
-        //
+        return $user->id === $task->user_id;
     }
 
     /**
@@ -53,7 +52,7 @@ class TaskPolicy
      */
     public function restore(User $user, Task $task): bool
     {
-        //
+        return $user->id === $task->user_id;
     }
 
     /**
@@ -61,6 +60,6 @@ class TaskPolicy
      */
     public function forceDelete(User $user, Task $task): bool
     {
-        //
+        return $user->id === $task->user_id;
     }
 }
